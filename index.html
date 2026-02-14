@@ -1,147 +1,330 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Wedding Invitation</title>
-  <meta name="description" content="Wedding invitation and programme details." />
-  <meta name="theme-color" content="#6b1f2c" />
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Wedding Invitation</title>
 
-  <!-- Arabic calligraphy-style font (Google Fonts) -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Aref+Ruqaa+Ink:wght@400;700&family=Cinzel:wght@500;700&family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Aref+Ruqaa+Ink:wght@400;700&family=Cinzel:wght@500;700&family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
 
-  <style>
-    :root{
-      --maroon:#6b1f2c;
-      --maroon2:#4a101c;
-      --gold:#b28a3a;
-      --gold2:#f0d18a;
-      --ivory:#fbf7ef;
-      --paper:#fff7ea;
-      --ink:#1f1f1f;
-      --muted:#5a5a5a;
-      --line:#e6dcc7;
-      --shadow: 0 20px 60px rgba(0,0,0,.12);
-      --radius: 20px;
-      --radius2: 28px;
-    }
+<style>
+:root{
+  --maroon:#6b1f2c;
+  --gold:#b28a3a;
+  --gold2:#f0d18a;
+  --ivory:#fbf7ef;
+  --line:#e6dcc7;
+  --shadow:0 20px 60px rgba(0,0,0,.12);
+  --radius:20px;
+  --radius2:28px;
+}
 
-    *{box-sizing:border-box}
-    html,body{height:100%}
-    body{
-      margin:0;
-      font-family: Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial;
-      color:var(--ink);
-      background:
-        radial-gradient(1200px 700px at 20% -10%, rgba(255,255,255,.95) 0%, transparent 60%),
-        radial-gradient(900px 520px at 80% 0%, rgba(255,255,255,.9) 0%, transparent 55%),
-        linear-gradient(180deg, #fff7ea 0%, var(--ivory) 35%, #f5efe4 100%);
-      overflow-x:hidden;
-    }
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family:Inter,system-ui;
+  background:linear-gradient(180deg,#fff7ea 0%,var(--ivory) 100%);
+  overflow-x:hidden;
+}
 
-    /* ---------- Intro Screen ---------- */
-    .intro{
-      position:fixed; inset:0;
-      display:flex; align-items:center; justify-content:center;
-      background:
-        radial-gradient(900px 500px at 30% 10%, rgba(178,138,58,.25) 0%, transparent 60%),
-        radial-gradient(700px 420px at 80% 0%, rgba(107,31,44,.18) 0%, transparent 55%),
-        linear-gradient(180deg, #14070a 0%, #2b0b12 50%, #16070b 100%);
-      z-index:9999;
-      transition: opacity .7s ease, visibility .7s ease;
-    }
-    .intro.hidden{opacity:0; visibility:hidden; pointer-events:none}
+/* ================= INTRO ================= */
 
-    .intro-card{
-      width:min(920px, 92vw);
-      padding:36px 18px 26px;
-      border-radius:32px;
-      position:relative;
-      text-align:center;
-      border:1px solid rgba(240,209,138,.30);
-      box-shadow: 0 30px 120px rgba(0,0,0,.45);
-      background:
-        radial-gradient(800px 380px at 50% 0%, rgba(240,209,138,.12) 0%, transparent 62%),
-        linear-gradient(180deg, rgba(255,255,255,.06) 0%, rgba(255,255,255,.02) 100%);
-      overflow:hidden;
-    }
+.intro{
+  position:fixed;
+  inset:0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:linear-gradient(180deg,#14070a 0%,#2b0b12 100%);
+  z-index:9999;
+  transition:.6s;
+}
+.intro.hidden{opacity:0;visibility:hidden}
 
-    .intro-card::before{
-      content:"";
-      position:absolute; inset:10px;
-      border-radius:26px;
-      border:1px solid rgba(240,209,138,.30);
-      pointer-events:none;
-      background:
-        linear-gradient(90deg, rgba(240,209,138,.06), transparent 30%, transparent 70%, rgba(240,209,138,.06));
-      mask:
-        radial-gradient(18px 18px at 0 0, #0000 60%, #000 61%) top left,
-        radial-gradient(18px 18px at 100% 0, #0000 60%, #000 61%) top right,
-        radial-gradient(18px 18px at 0 100%, #0000 60%, #000 61%) bottom left,
-        radial-gradient(18px 18px at 100% 100%, #0000 60%, #000 61%) bottom right,
-        linear-gradient(#000 0 0);
-      -webkit-mask:
-        radial-gradient(18px 18px at 0 0, #0000 60%, #000 61%) top left,
-        radial-gradient(18px 18px at 100% 0, #0000 60%, #000 61%) top right,
-        radial-gradient(18px 18px at 0 100%, #0000 60%, #000 61%) bottom left,
-        radial-gradient(18px 18px at 100% 100%, #0000 60%, #000 61%) bottom right,
-        linear-gradient(#000 0 0);
-    }
-    .intro-card::after{
-      content:"";
-      position:absolute; inset:-40px;
-      background:
-        radial-gradient(circle at 20% 30%, rgba(240,209,138,.10) 0%, transparent 40%),
-        radial-gradient(circle at 80% 20%, rgba(178,138,58,.10) 0%, transparent 42%),
-        repeating-linear-gradient(45deg, rgba(240,209,138,.05) 0 2px, transparent 2px 20px),
-        repeating-linear-gradient(-45deg, rgba(240,209,138,.04) 0 2px, transparent 2px 24px);
-      opacity:.55;
-      pointer-events:none;
-      filter: blur(.2px);
-    }
+.intro-card{
+  width:min(900px,92vw);
+  padding:40px 20px;
+  border-radius:30px;
+  text-align:center;
+  position:relative;
+  background:rgba(255,255,255,.06);
+  border:1px solid rgba(240,209,138,.3);
+  overflow:hidden;
+}
 
-    .bismillah{
-      position:relative;
-      font-family: "Aref Ruqaa Ink", serif;
-      font-size: clamp(44px, 7vw, 86px);
-      line-height:1.05;
-      margin: 6px 0 10px;
-      letter-spacing:.5px;
-      background: linear-gradient(180deg, #f7e2a4 0%, #d4af37 50%, #b28a3a 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      text-shadow:
-        0 0 25px rgba(240,209,138,0.35),
-        0 0 60px rgba(178,138,58,0.25);
-    }
+/* 🔥 IMPORTANT FIX — cannot block clicks */
+.intro-card::before,
+.intro-card::after{
+  pointer-events:none;
+}
 
-    .intro-sub{
-      position:relative;
-      color: rgba(255,255,255,.82);
-      font-weight:600;
-      letter-spacing:.10em;
-      text-transform: uppercase;
-      font-size:12px;
-      margin-top:10px;
-    }
-    .intro-hint{
-      position:relative;
-      margin:18px 0 0;
-      color: rgba(255,255,255,.75);
-      font-size:14px;
-      line-height:1.65;
-    }
+.bismillah{
+  font-family:"Aref Ruqaa Ink",serif;
+  font-size:clamp(40px,7vw,80px);
+  background:linear-gradient(180deg,#f7e2a4 0%,#d4af37 100%);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
 
-    .enter-btn{
-      position:relative;
-      margin-top:18px;
-      appearance:none;
-      border:0;
-      cursor:pointer;
-      padding:14px 18px;
-      border-radius:16px;
+.intro-sub{
+  color:#fff;
+  margin-top:10px;
+}
+
+.enter-btn{
+  margin-top:20px;
+  padding:14px 20px;
+  border-radius:14px;
+  border:0;
+  cursor:pointer;
+  font-weight:800;
+  background:linear-gradient(180deg,var(--gold2),#d9b86a);
+}
+
+/* ================= MAIN ================= */
+
+.wrap{
+  max-width:1000px;
+  margin:0 auto;
+  padding:40px 16px 70px;
+  opacity:0;
+  transition:.6s;
+}
+.wrap.ready{opacity:1}
+
+.pill{
+  text-align:center;
+  margin-bottom:20px;
+  font-weight:800;
+  color:var(--maroon);
+}
+
+.flip-wrap{perspective:1200px}
+.flip-card{
+  position:relative;
+  transform-style:preserve-3d;
+  transition:transform .8s ease;
+  min-height:550px;
+}
+.flip-card.is-flipped{transform:rotateY(180deg)}
+
+.face{
+  position:absolute;
+  inset:0;
+  backface-visibility:hidden;
+}
+.back{transform:rotateY(180deg)}
+
+.hero{
+  border-radius:var(--radius2);
+  box-shadow:var(--shadow);
+  border:1px solid var(--line);
+  background:white;
+  padding:30px;
+  text-align:center;
+}
+
+h1{
+  font-family:Cinzel,serif;
+  color:var(--maroon);
+}
+
+.sub{
+  max-width:600px;
+  margin:0 auto;
+  line-height:1.7;
+}
+
+.countdown{
+  display:flex;
+  gap:10px;
+  justify-content:center;
+  margin-top:15px;
+  flex-wrap:wrap;
+}
+.cd{
+  padding:10px 14px;
+  border:1px solid var(--line);
+  border-radius:14px;
+}
+.cd b{display:block;color:var(--maroon)}
+
+.btn{
+  margin-top:15px;
+  padding:12px 16px;
+  border-radius:14px;
+  border:0;
+  cursor:pointer;
+  font-weight:800;
+  background:var(--maroon);
+  color:white;
+}
+
+.section-title{
+  margin:20px 0 10px;
+  font-weight:900;
+  text-align:center;
+  color:var(--maroon);
+}
+
+.events{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:14px;
+}
+@media(max-width:900px){
+  .events{grid-template-columns:1fr}
+}
+
+.event{
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  padding:16px;
+}
+
+.card{
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  padding:16px;
+  margin-top:14px;
+}
+
+.footer{
+  margin-top:30px;
+  text-align:center;
+  font-size:13px;
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- INTRO -->
+<section class="intro" id="intro">
+  <div class="intro-card">
+    <div class="bismillah" dir="rtl">بِسْمِ ٱللَّٰهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ</div>
+    <div class="intro-sub">In the name of Allah, the Most Gracious, the Most Merciful</div>
+    <button class="enter-btn" id="enterBtn">✨ Tap to Enter</button>
+  </div>
+</section>
+
+<!-- MAIN -->
+<main class="wrap" id="main">
+
+<div class="pill">🕊️ Wedding Invitation</div>
+
+<div class="flip-wrap">
+<div class="flip-card" id="flipCard">
+
+<!-- FRONT -->
+<section class="face front">
+<div class="hero">
+<h1>We request the honour of your presence</h1>
+<p class="sub">
+Mr. & Mrs. Qari Ali Mohammad Wani
+request the honour of your presence at the wedding of their beloved Daughter and Son.
+</p>
+
+<div class="countdown">
+<div class="cd"><b id="d">--</b>Days</div>
+<div class="cd"><b id="h">--</b>Hours</div>
+<div class="cd"><b id="m">--</b>Minutes</div>
+<div class="cd"><b id="s">--</b>Seconds</div>
+</div>
+
+<button class="btn" id="seeEventsBtn">✨ See Events</button>
+</div>
+</section>
+
+<!-- BACK -->
+<section class="face back">
+<div class="hero">
+
+<h2 class="section-title">Wedding Programme</h2>
+<div class="events">
+<div class="event">
+<strong>Mehendi Raat</strong><br>
+Fri, 11 Sep 2026<br>5:00 PM
+</div>
+<div class="event">
+<strong>Baraat</strong><br>
+Sat, 12 Sep 2026<br>5:00 PM
+</div>
+<div class="event">
+<strong>Dawat-e-Walima</strong><br>
+Sun, 13 Sep 2026<br>2:00 PM
+</div>
+</div>
+
+<h2 class="section-title">Location & Contact</h2>
+<div class="card">
+Wani Residency<br>
+Nundresh Colony, Sector-B, Bemina, Srinagar<br><br>
+📞 7006485454<br>
+📞 9622782221
+</div>
+
+<button class="btn" id="backBtn">← Back</button>
+
+</div>
+</section>
+
+</div>
+</div>
+
+<div class="footer">
+“And among His signs is this: that He created for you spouses…”
+</div>
+
+</main>
+
+<script>
+
+/* ENTER FIX */
+const intro = document.getElementById("intro");
+const main = document.getElementById("main");
+const enterBtn = document.getElementById("enterBtn");
+
+function enterInvitation(){
+  intro.classList.add("hidden");
+  main.classList.add("ready");
+  window.scrollTo({top:0});
+}
+
+enterBtn.addEventListener("click", enterInvitation);
+
+/* 🔥 FIX: allow tap anywhere */
+intro.addEventListener("click", () => {
+  if (!intro.classList.contains("hidden")) enterInvitation();
+});
+
+/* FLIP */
+const flipCard = document.getElementById("flipCard");
+document.getElementById("seeEventsBtn").onclick=()=>flipCard.classList.add("is-flipped");
+document.getElementById("backBtn").onclick=()=>flipCard.classList.remove("is-flipped");
+
+/* COUNTDOWN */
+const target=new Date("2026-09-13T14:00:00+05:30").getTime();
+function tick(){
+const now=Date.now();
+let diff=target-now;
+if(diff<0) diff=0;
+const s=Math.floor(diff/1000);
+document.getElementById("d").textContent=Math.floor(s/86400);
+document.getElementById("h").textContent=Math.floor((s%86400)/3600);
+document.getElementById("m").textContent=Math.floor((s%3600)/60);
+document.getElementById("s").textContent=s%60;
+}
+tick();
+setInterval(tick,1000);
+
+</script>
+
+</body>
+</html>      border-radius:16px;
       font-weight:800;
       letter-spacing:.02em;
       color:#2b0b12;
@@ -1108,4 +1291,5 @@
   </script>
 </body>
 </html>
+
 
