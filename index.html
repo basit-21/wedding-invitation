@@ -10,7 +10,7 @@
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Aref+Ruqaa+Ink:wght@400;700&family=Cinzel:wght@500;700&family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=lateef:wght@400;700&family=Cinzel:wght@500;700&family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
 
   <style>
     :root{
@@ -39,6 +39,12 @@
         radial-gradient(900px 520px at 80% 0%, rgba(255,255,255,.9) 0%, transparent 55%),
         linear-gradient(180deg, #fff7ea 0%, var(--ivory) 35%, #f5efe4 100%);
       overflow-x:hidden;
+    }
+
+    /* Improve text rendering (helps on mobile) */
+    .face, .panel, .panel-content{
+      -webkit-font-smoothing: antialiased;
+      text-rendering: geometricPrecision;
     }
 
     /* ---------- Intro Screen ---------- */
@@ -94,16 +100,16 @@
 
     .bismillah{
       position:relative;
-      font-family: "Aref Ruqaa Ink", serif;
+      font-family: "lateef", serif;
       font-size: clamp(44px, 7vw, 86px);
-      line-height:1.05;
+      line-height:1.35;
       margin: 6px 0 10px;
       letter-spacing:.5px;
       background: linear-gradient(180deg, #f7e2a4 0%, #d4af37 50%, #b28a3a 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       text-shadow:
-        0 0 25px rgba(240,209,138,0.35),
+        0 0 25px rgba(240,209,138,0.4),
         0 0 60px rgba(178,138,58,0.25);
     }
 
@@ -183,10 +189,10 @@
       font-weight:800;
     }
 
-    /* ===== Premium flip + shine ===== */
+    /* ===== Premium flip + shine (NO translateZ on faces => no blur) ===== */
     .flip-wrap{
       perspective: 1800px;
-      perspective-origin: 50% 35%;
+      perspective-origin: 100% 50%;
     }
 
     .flip-card{
@@ -204,7 +210,6 @@
       border-radius: 26px;
       box-shadow: 0 34px 90px rgba(0,0,0,.22);
       opacity: .55;
-      transform: translateZ(-40px);
       pointer-events:none;
       transition: opacity 950ms cubic-bezier(.18,.9,.18,1);
     }
@@ -220,13 +225,13 @@
         rgba(255,255,255,.06) 62%,
         transparent 100%
       );
-      transform: translateX(-60%) translateZ(20px);
+      transform: translateX(-60%);
       opacity: 0;
       pointer-events:none;
     }
 
     .flip-card.is-flipped{
-      transform: rotateY(180deg) translateZ(0);
+      transform: rotateY(-180deg);
     }
     .flip-card.is-flipped::after{ opacity: .78; }
     .flip-card.is-flipped::before{
@@ -235,9 +240,9 @@
     }
 
     @keyframes shine{
-      0%{ transform: translateX(-70%) translateZ(20px); opacity:0; }
+      0%{ transform: translateX(-70%); opacity:0; }
       15%{ opacity:.9; }
-      100%{ transform: translateX(70%) translateZ(20px); opacity:0; }
+      100%{ transform: translateX(70%); opacity:0; }
     }
 
     .face{
@@ -245,32 +250,61 @@
       inset:0;
       backface-visibility:hidden;
       -webkit-backface-visibility:hidden;
-      transform: translateZ(0);
     }
-    .front{ transform: rotateY(0deg) translateZ(2px); }
-    .back { transform: rotateY(180deg) translateZ(2px); }
+    .front{ transform: rotateY(0deg); }
+    .back { transform: rotateY(-180deg); }
 
-    /* ===== Premium panel (both sides) ===== */
-    .panel{
-      position: relative;
-      border-radius: var(--radius2);
-      box-shadow: var(--shadow);
-      overflow:hidden;
-      border:1px solid var(--line);
-      background: linear-gradient(180deg, rgba(255,255,255,.92) 0%, rgba(255,255,255,.72) 100%);
-    }
+  /* ===== Mughal Luxury Card Background ===== */
+.panel{
+  position: relative;
+  background:
+    radial-gradient(circle at 20% 25%, rgba(255,220,140,.22) 0%, transparent 45%),
+    radial-gradient(circle at 80% 75%, rgba(178,138,58,.18) 0%, transparent 50%),
+    linear-gradient(180deg, #fff3dc 0%, #f0dcbc 100%);
+  border-radius: 28px;
+  border: 1px solid rgba(178,138,58,.42);
+  box-shadow:
+    0 30px 80px rgba(0,0,0,.15),
+    inset 0 0 40px rgba(178,138,58,.10);
+  overflow: visible;
+}
 
-    .panel::before{
-      content:"";
-      position:absolute; inset:-60px;
-      background:
-        radial-gradient(700px 320px at 25% 0%, rgba(178,138,58,.18) 0%, transparent 60%),
-        radial-gradient(520px 240px at 80% 0%, rgba(107,31,44,.15) 0%, transparent 55%),
-        repeating-linear-gradient(45deg, rgba(178,138,58,.06) 0 2px, transparent 2px 22px),
-        repeating-linear-gradient(-45deg, rgba(107,31,44,.045) 0 2px, transparent 2px 26px);
-      opacity:.65;
-      pointer-events:none;
-    }
+/* Mughal pattern overlay */
+.panel::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  border-radius:28px;
+  pointer-events:none;
+  background:
+ repeating-linear-gradient(
+      45deg,
+      rgba(178,138,58,.05) 0px,
+      rgba(178,138,58,.05) 2px,
+      transparent 2px,
+      transparent 24px
+    ),
+    repeating-linear-gradient(
+      -45deg,
+      rgba(178,138,58,.04) 0px,
+      rgba(178,138,58,.04) 2px,
+      transparent 2px,
+      transparent 26px
+    );
+  opacity:.95;
+mix-blend-mode: multiply;
+}
+
+.panel::after{
+  content:"";
+  position:absolute;
+  inset:12px;
+  border-radius: 22px;
+  border:1px solid rgba(240,209,138,.5);
+  pointer-events:none;
+  box-shadow:
+    inset 0 0 0 1px rgba(178,138,58,.2);
+}
 
     .panel .frame{
       position:absolute; inset:12px;
@@ -288,12 +322,12 @@
       text-align:center;
     }
 
-    .kicker{
+    .bismillah-front{
       color:var(--gold);
+      font-family: "lateef", serif;
       font-weight:900;
-      letter-spacing:.18em;
       text-transform:uppercase;
-      font-size:12px;
+      font-size:22px;
     }
 
     h1{
@@ -401,15 +435,7 @@
       line-height:1.7;
     }
 
-    /* Hint for swipe on mobile */
-    .swipe-hint{
-      margin-top: 10px;
-      color: rgba(90,90,90,.85);
-      font-size: 12px;
-      font-weight: 800;
-      letter-spacing: .06em;
-      text-transform: uppercase;
-    }
+   
   </style>
 </head>
 
@@ -441,7 +467,7 @@
           <div class="panel">
             <div class="frame" aria-hidden="true"></div>
             <div class="panel-content">
-              <div class="kicker">Bismillah-ir-Rahman-ir-Rahim</div>
+               <div class="bismillah-front" dir="rtl" lang="ar">بِسْمِ ٱللَّٰهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ</div>
 
               <h1>We request the honour of your presence</h1>
 
@@ -463,7 +489,7 @@
                 <button class="btn" id="seeEventsBtn" type="button">✨ See Events</button>
               </div>
 
-              <div class="swipe-hint">Swipe left for details</div>
+          
             </div>
           </div>
 
@@ -518,7 +544,6 @@
                   📞 7006485454 &nbsp;•&nbsp; 📞 9622782221
                 </div>
 
-                <div class="swipe-hint">Swipe right to go back</div>
               </div>
             </div>
           </div>
@@ -542,6 +567,7 @@
     // ==========================
     const COORDS = { lat: 34.069620, lng: 74.768558 };
     const COUNTDOWN_TARGET_ISO = "2026-09-13T14:00:00+05:30";
+    const AUDIO_FILE = "wedding-audio.mp3"; // ✅ upload this file to same folder
 
     // ==========================
     // MAP
@@ -550,15 +576,33 @@
     if (mapsBtn) mapsBtn.href = `https://www.google.com/maps?q=${COORDS.lat},${COORDS.lng}&z=17`;
 
     // ==========================
-    // INTRO ENTER
+    // INTRO + AUDIO
     // ==========================
     const intro = document.getElementById("intro");
     const main = document.getElementById("main");
     const enterBtn = document.getElementById("enterBtn");
+    const audioNote = document.getElementById("audioNote");
+
+    const bgAudio = new Audio(AUDIO_FILE);
+    bgAudio.loop = true;
+    bgAudio.volume = 0.55;
+
+    async function startAudio(){
+      try{
+        await bgAudio.play();
+      }catch(e){
+        if (audioNote) audioNote.classList.add("show");
+      }
+
+      bgAudio.addEventListener("error", () => {
+        if (audioNote) audioNote.classList.add("show");
+      }, { once:true });
+    }
 
     function enterInvitation(){
       intro.classList.add("hidden");
       main.classList.add("ready");
+      startAudio(); // ✅ starts music after user tap
       window.scrollTo({ top: 0, behavior: "smooth" });
     }
 
@@ -587,40 +631,28 @@
     backBtn.addEventListener("click", flipToFront);
 
     // ==========================
-    // SWIPE (mobile premium)
-    // swipe left => details, swipe right => back
+    // SWIPE
     // ==========================
     let touchStartX = 0;
     let touchStartY = 0;
 
-    function onTouchStart(e){
+    flipCard.addEventListener("touchstart", (e) => {
       const t = e.touches[0];
       touchStartX = t.clientX;
       touchStartY = t.clientY;
-    }
+    }, { passive:true });
 
-    function onTouchEnd(e){
+    flipCard.addEventListener("touchend", (e) => {
       const t = e.changedTouches[0];
       const dx = t.clientX - touchStartX;
       const dy = t.clientY - touchStartY;
 
-      // ignore mostly vertical scroll gestures
       if (Math.abs(dy) > Math.abs(dx)) return;
 
-      // threshold
       const TH = 55;
-
-      if (dx < -TH) {
-        // swipe left
-        flipToBack();
-      } else if (dx > TH) {
-        // swipe right
-        flipToFront();
-      }
-    }
-
-    flipCard.addEventListener("touchstart", onTouchStart, { passive: true });
-    flipCard.addEventListener("touchend", onTouchEnd, { passive: true });
+      if (dx < -TH) flipToBack();
+      if (dx > TH) flipToFront();
+    }, { passive:true });
 
     // ==========================
     // COUNTDOWN
