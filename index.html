@@ -290,22 +290,22 @@
   border-radius:28px;
   pointer-events:none;
   background:
- repeating-linear-gradient(
+    repeating-linear-gradient(
       45deg,
-      rgba(178,138,58,.05) 0px,
-      rgba(178,138,58,.05) 2px,
+      rgba(178,138,58,.035) 0px,
+      rgba(178,138,58,.035) 2px,
       transparent 2px,
       transparent 24px
     ),
     repeating-linear-gradient(
       -45deg,
-      rgba(178,138,58,.04) 0px,
-      rgba(178,138,58,.04) 2px,
+      rgba(178,138,58,.03) 0px,
+      rgba(178,138,58,.03) 2px,
       transparent 2px,
       transparent 26px
     );
-  opacity:.95;
-mix-blend-mode: multiply;
+  opacity:.45;              /* ✅ lighter */
+  mix-blend-mode: normal;   /* ✅ removes dark shading */
 }
 
 .panel::after{
@@ -796,6 +796,7 @@ if(backPage){
   </script>
 </body>
 </html>
+
 
 
 
