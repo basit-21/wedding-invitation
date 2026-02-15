@@ -380,35 +380,18 @@ mix-blend-mode: multiply;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 10px;
-
-  /* ✅ shaded background covers FULL countdown */
-  padding: 14px;
-  border-radius: 22px;
-  background: rgba(0,0,0,.08);
-  border: 1px solid rgba(178,138,58,.18);
-
-  /* important */
-  width: 100%;
-  max-width: 520px;
   margin: 14px auto 0;
+  max-width: 520px;
+
+
 }
 
     @media (max-width: 520px){
   .countdown{
     grid-template-columns: repeat(2, 1fr);
   }
-      .eventsShade{
-  padding: 14px;
-  border-radius: 26px;
-  background: rgba(0,0,0,.08);
-  border: 1px solid rgba(178,138,58,.18);
-  margin: 0 auto 18px;
-  max-width: 920px;
-      }
-      .countdown{
-  background: transparent !important;
-  border: none !important;
-  padding: 0 !important;
+    
+      
       }
     }
 .cd{
@@ -645,7 +628,7 @@ This sacred union will be solemnized in accordance with Islamic traditions and S
                 <div class="cd"><b id="s">—</b><span>Seconds</span></div>
                 
               <div class="section-title" style="margin-top:20px;">Location &amp; Contact </div>
-
+</div>
               <div class="card">
                 <div style="font-weight:900; color:var(--maroon); margin-bottom:6px;">Wani Residency</div>
                 Nundresh Colony, Sector-B, Bemina, Srinagar
@@ -813,6 +796,7 @@ if(backPage){
   </script>
 </body>
 </html>
+
 
 
 
