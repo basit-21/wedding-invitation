@@ -378,39 +378,56 @@ mix-blend-mode: multiply;
 
 .countdown{
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(4, 1fr);
   gap: 10px;
 
-  /* ✅ this makes the shade cover FULL countdown area */
+  /* ✅ shaded background covers FULL countdown */
   padding: 14px;
-  border-radius: 20px;
-  background: linear-gradient(
-    180deg,
-    rgba(0,0,0,.08) 0%,
-    rgba(0,0,0,.03) 100%
-  );
-
-  /* optional: premium edge */
+  border-radius: 22px;
+  background: rgba(0,0,0,.08);
   border: 1px solid rgba(178,138,58,.18);
-}
-  .countdown .cd:last-child{
-  grid-column: 1 / -1;        /* take full row */
-  justify-self: center;        /* center */
-  max-width: 170px;            /* keeps it compact */
+
+  /* important */
   width: 100%;
-  }
-.cd{
-  min-width: 0;
-  padding: 10px 12px;
-  border-radius: 16px;
-  border: 1px solid rgba(178,138,58,.25);
-  background: rgba(255,255,255,.55);
-  backdrop-filter: blur(6px);
-  text-align: center;
+  max-width: 520px;
+  margin: 14px auto 0;
 }
 
-    .cd b{display:block;font-size:20px;color:var(--maroon)}
-    .cd span{font-size:11px;color:var(--muted);font-weight:900;letter-spacing:.12em;text-transform:uppercase}
+    @media (max-width: 520px){
+  .countdown{
+    grid-template-columns: repeat(2, 1fr);
+  }
+    }
+.cd{
+  width: 100%;
+  height: 78px;                 /* ✅ all same size */
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  border-radius: 18px;
+
+  border: 1px solid rgba(178,138,58,.22);
+  background: rgba(255,255,255,.60);
+  backdrop-filter: blur(6px);
+  text-align:center;
+}
+
+    .cd b{
+  display:block;
+  font-size: 22px;
+  color: var(--maroon);
+  line-height: 1;
+  margin-bottom: 6px;
+}
+
+.cd span{
+  font-size: 11px;
+  color: var(--muted);
+  font-weight: 900;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
 
     .actions{
       display:flex;
@@ -781,6 +798,7 @@ if(backPage){
   </script>
 </body>
 </html>
+
 
 
 
