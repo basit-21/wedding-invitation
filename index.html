@@ -393,7 +393,12 @@ mix-blend-mode: multiply;
   /* optional: premium edge */
   border: 1px solid rgba(178,138,58,.18);
 }
-  
+  .countdown .cd:last-child{
+  grid-column: 1 / -1;        /* take full row */
+  justify-self: center;        /* center */
+  max-width: 170px;            /* keeps it compact */
+  width: 100%;
+  }
 .cd{
   min-width: 0;
   padding: 10px 12px;
@@ -776,6 +781,7 @@ if(backPage){
   </script>
 </body>
 </html>
+
 
 
 
