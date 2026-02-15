@@ -282,32 +282,33 @@
   overflow: visible;
 }
 
-/* Mughal pattern overlay */
 .panel::before{
   content:"";
   position:absolute;
   inset:0;
   border-radius:28px;
   pointer-events:none;
+
+  /* Mughal / geometric pattern */
   background:
     repeating-linear-gradient(
       45deg,
-      rgba(178,138,58,.035) 0px,
-      rgba(178,138,58,.035) 2px,
+      rgba(107,31,44,.12) 0px,
+      rgba(107,31,44,.12) 2px,
       transparent 2px,
-      transparent 24px
+      transparent 18px
     ),
     repeating-linear-gradient(
       -45deg,
-      rgba(178,138,58,.03) 0px,
-      rgba(178,138,58,.03) 2px,
+      rgba(178,138,58,.14) 0px,
+      rgba(178,138,58,.14) 2px,
       transparent 2px,
-      transparent 26px
+      transparent 18px
     );
-  opacity:.45;              /* ✅ lighter */
-  mix-blend-mode: normal;   /* ✅ removes dark shading */
-}
 
+  opacity: .70;             /* 👈 visible but still premium */
+  mix-blend-mode: multiply; /* 👈 makes it pop on light bg */
+}
 .panel::after{
   content:"";
   position:absolute;
@@ -626,7 +627,7 @@ This sacred union will be solemnized in accordance with Islamic traditions and S
 <div class="section-title loc-title">Location &amp; Contact</div>
 
 <div class="card">
-  ...
+
 
             
 
@@ -794,6 +795,7 @@ if(backPage){
   </script>
 </body>
 </html>
+
 
 
 
