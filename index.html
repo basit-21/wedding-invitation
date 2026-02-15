@@ -391,6 +391,7 @@
   .countdown{
     grid-template-columns: repeat(2, 1fr);
   }
+}
 
 .cd{
   border-radius:16px;
@@ -400,6 +401,7 @@
   padding: 14px 12px;
   text-align:center;
 }
+
 .cd b{
   display:block;
   font-size:22px;
@@ -407,6 +409,7 @@
   font-weight:900;
   line-height:1.1;
 }
+
 .cd span{
   display:block;
   margin-top:6px;
@@ -594,62 +597,7 @@ This sacred union will be solemnized in accordance with Islamic traditions and S
   إِنْ شَاءَ ٱللَّٰه
 </div>
               
-              <div class="section-title">Wedding Programme</div>
-
-              <div class="events">
-                <div class="event">
-                  <div class="tag">🌙 Mehendi Raat</div>
-                  <h3>Mehendi Raat</h3>
-                  <div class="when">Fri, 11 Sep 2026<br/>5:00 PM</div>
-                </div>
-
-                <div class="event">
-                  <div class="tag">🎉 Baraat</div>
-                  <h3>Baraat</h3>
-                  <div class="when">Sat, 12 Sep 2026<br/>5:00 PM</div>
-                </div>
-
-                <div class="event">
-                  <div class="tag">🍽️ Dawat-e-Walima</div>
-                  <h3>Dawat-e-Walima</h3>
-                  <div class="when">Sun, 13 Sep 2026<br/>2:00 PM</div>
               
-                </div>
-      
-              
-<div class="countdown" aria-label="Countdown to Walima">
-  <div class="cd"><b id="d">—</b><span>Days</span></div>
-  <div class="cd"><b id="h">—</b><span>Hours</span></div>
-  <div class="cd"><b id="m">—</b><span>Minutes</span></div>
-  <div class="cd"><b id="s">—</b><span>Seconds</span></div>
-</div>
-
-<div class="section-title loc-title">Location &amp; Contact</div>
-
-<div class="card">
-
-
-            
-
-                <div style="font-weight:900; color:var(--maroon); margin-bottom:6px;">Wani Residency</div>
-                Nundresh Colony, Sector-B, Bemina, Srinagar
-
-                <div class="actions" style="margin-top:14px;">
-                  <a class="btn secondary" id="mapsBtn" " href="#" target="_blank" rel="noopener">📍 Open Location</a>
-             
-                </div>
-
-                <div style="margin-top:12px; color:var(--muted); font-weight:800;">
-                 <a href="tel:+917006485454" class="phone-link">
-  📞 7006485454
-</a>
-<a href="tel:+919622782221" class="phone-link">
-  📞 9622782221
-</a>
-
-                </div>
-
-              </div>
         
           <div class="footer">
             “They are garments for you and you are garments for them.”
@@ -669,7 +617,51 @@ This sacred union will be solemnized in accordance with Islamic traditions and S
     // CONFIG
     // ==========================
     const COORDS = { lat: 34.069620, lng: 74.768558 };
-    const COUNTDOWN_TARGET_ISO = "2026-09-13T14:00:00+05:30";
+    const COUNTDOWN_TARGET_ISO = "2026-0<div class="section-title">Wedding Programme</div>
+
+<div class="events">
+  <div class="event">
+    <div class="tag">🌙 Mehendi Raat</div>
+    <h3>Mehendi Raat</h3>
+    <div class="when">Fri, 11 Sep 2026<br/>5:00 PM</div>
+  </div>
+
+  <div class="event">
+    <div class="tag">🎉 Baraat</div>
+    <h3>Baraat</h3>
+    <div class="when">Sat, 12 Sep 2026<br/>5:00 PM</div>
+  </div>
+
+  <div class="event">
+    <div class="tag">🍽️ Dawat-e-Walima</div>
+    <h3>Dawat-e-Walima</h3>
+    <div class="when">Sun, 13 Sep 2026<br/>2:00 PM</div>
+  </div>
+</div> <!-- ✅ CLOSE EVENTS -->
+
+<div class="countdown" aria-label="Countdown to Walima">
+  <div class="cd"><b id="d">—</b><span>Days</span></div>
+  <div class="cd"><b id="h">—</b><span>Hours</span></div>
+  <div class="cd"><b id="m">—</b><span>Minutes</span></div>
+  <div class="cd"><b id="s">—</b><span>Seconds</span></div>
+</div>
+
+<div class="section-title loc-title">Location &amp; Contact</div>
+
+<div class="card">
+  <div style="font-weight:900; color:var(--maroon); margin-bottom:6px;">Wani Residency</div>
+  Nundresh Colony, Sector-B, Bemina, Srinagar
+
+  <div class="actions" style="margin-top:14px;">
+    <a class="btn secondary" id="mapsBtn" href="#" target="_blank" rel="noopener">📍 Open Location</a>
+  </div>
+
+  <div style="margin-top:12px; color:var(--muted); font-weight:800;">
+    <a href="tel:+917006485454" class="phone-link">📞 7006485454</a><br>
+    <a href="tel:+919622782221" class="phone-link">📞 9622782221</a>
+  </div>
+    </div>
+    9-13T14:00:00+05:30";
     const AUDIO_FILE = "wedding-audio.mp3"; // ✅ upload this file to same folder
 
     // ==========================
@@ -795,6 +787,7 @@ if(backPage){
   </script>
 </body>
 </html>
+
 
 
 
